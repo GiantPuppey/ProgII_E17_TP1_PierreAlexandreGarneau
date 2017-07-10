@@ -8,6 +8,7 @@ Canon::Canon()
 	, position(.0f, .0f, .0f)
 	, direction(.0f, .0f, .0f)
 	, speed(0)
+	, isReady(true)
 {
 	HR(D3DXCreateTextureFromFileEx(gD3DDevice, L"bannerSmallBlue.png", 0, 0, 1, 0,
 		D3DFMT_UNKNOWN, D3DPOOL_MANAGED, D3DX_FILTER_NONE, D3DX_DEFAULT,
@@ -25,22 +26,11 @@ void Canon::Update()
 	POINT mousePos = i->GetMousePos();
 	D3DVIEWPORT9 v;
 	gD3DDevice->GetViewport(&v);
-	//GetCursorPos(&mousePos);
-	D3DXVECTOR3 vMousePos(mousePos.x - (float)v.Width / 2, mousePos.y - (float)v.Height / 2, 0.f); //- gD3DApp->GetResolutionW() / 2, mousePos.y - gD3DApp->GetResolutionH() / 2, 0.f);
+	D3DXVECTOR3 vMousePos(mousePos.x - (float)v.Width / 2, mousePos.y - (float)v.Height / 2, 0.f);
 	D3DXVECTOR3 centre(0, -300, 0);
 	D3DXVECTOR3 dir = vMousePos - centre;
 	D3DXVec3Normalize(&dir, &dir);
-	angle = (atan2(dir.y, dir.x));
-
-	
-	//SetRotationZ(atan2(dir.y, dir.x) - 90 * DEG_TO_RAD);
-	//std::cout << "x:" << mousePos.x << "    y:" << mousePos.y << "    a:" << angle << std::endl;
-	std::cout << "x:" << mousePos.x - v.Width / 2 << "    y:" << mousePos.y - v.Height / 2 << "    a:" << angle << std::endl;
-
-	//D3DVIEWPORT9 *v = new D3DVIEWPORT9();
-	//gD3DDevice->GetViewport(v);
-	
-
+	angle = atan2(dir.y, dir.x);
 }
 
 void Canon::Draw(ID3DXSprite* spriteBatch)
@@ -58,3 +48,17 @@ void Canon::Draw(ID3DXSprite* spriteBatch)
 	HR(spriteBatch->Flush());
 }
 
+bool Canon::GetIsReady()
+{
+	return isReady;
+}
+
+void Canon::SetIsReady(bool pIsReady)
+{
+	isReady = pIsReady;
+}
+
+float Canon::GetAngle()
+{
+	return angle;
+}

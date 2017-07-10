@@ -23,6 +23,7 @@ private:
 	Canon canon;
 	Background background;
 
+
 	// Camera
 	D3DXMATRIX view;
 	D3DXMATRIX ortho;

@@ -7,6 +7,7 @@ public:
 
 	void Update();
 	void Draw(ID3DXSprite* spriteBatch);
+	void Launch(float angle);
 
 private:
 	// Sprite

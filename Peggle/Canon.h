@@ -7,6 +7,9 @@ public:
 
 	void Update();
 	void Draw(ID3DXSprite* spriteBatch);
+	bool GetIsReady();
+	void SetIsReady(bool isReady);
+	float GetAngle();
 
 private:
 	// Sprite
@@ -17,5 +20,6 @@ private:
 	D3DXVECTOR3 direction;
 	float speed;
 	float angle;
+	bool isReady;
 };
 

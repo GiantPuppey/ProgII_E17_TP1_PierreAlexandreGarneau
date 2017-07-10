@@ -4,9 +4,9 @@
 
 Balle::Balle()
 	: center(.0f, .0f, .0f)
-	, position(.0f, .0f, .0f)
-	, direction(.5f, 1.5f, .0f)
-	, speed(200)
+	, position(-1000.0f, -1000.0f, .0f)
+	, direction(.0f, .0f, .0f)
+	, speed(0)
 {
 	HR(D3DXCreateTextureFromFileEx(gD3DDevice, L"ball.png", 0, 0, 1, 0,
 		D3DFMT_UNKNOWN, D3DPOOL_MANAGED, D3DX_FILTER_NONE, D3DX_DEFAULT,
@@ -53,4 +53,13 @@ void Balle::Draw(ID3DXSprite* spriteBatch)
 {
 	HR(spriteBatch->Draw(texture, 0, &center, &position, D3DCOLOR_XRGB(255, 255, 255)));
 	HR(spriteBatch->Flush());
+}
+
+void Balle::Launch(float angle)
+{
+	position.x = 0;
+	position.y = -300;
+	speed = 200;
+	direction.x = cos(angle);
+	direction.y = sin(angle);
 }
