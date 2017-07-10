@@ -21,19 +21,21 @@ Canon::~Canon()
 
 void Canon::Update()
 {
-	//position += ((direction * speed) * gD3DApp->GetTimer()->GetDeltaTime());
-
 	Input* i = gD3DApp->GetInput();
 	POINT mousePos = i->GetMousePos();
+	D3DVIEWPORT9 v;
+	gD3DDevice->GetViewport(&v);
 	//GetCursorPos(&mousePos);
-	D3DXVECTOR3 vMousePos(mousePos.x, mousePos.y, 0.f); //- gD3DApp->GetResolutionW() / 2, mousePos.y - gD3DApp->GetResolutionH() / 2, 0.f);
-	D3DXVECTOR3 dir = vMousePos - position;
+	D3DXVECTOR3 vMousePos(mousePos.x - (float)v.Width / 2, mousePos.y - (float)v.Height / 2, 0.f); //- gD3DApp->GetResolutionW() / 2, mousePos.y - gD3DApp->GetResolutionH() / 2, 0.f);
+	D3DXVECTOR3 centre(0, -300, 0);
+	D3DXVECTOR3 dir = vMousePos - centre;
 	D3DXVec3Normalize(&dir, &dir);
 	angle = (atan2(dir.y, dir.x));
 
 	
 	//SetRotationZ(atan2(dir.y, dir.x) - 90 * DEG_TO_RAD);
-	std::cout << "x:" << mousePos.x << "    y:" << mousePos.y << "    a:" << angle << std::endl;
+	//std::cout << "x:" << mousePos.x << "    y:" << mousePos.y << "    a:" << angle << std::endl;
+	std::cout << "x:" << mousePos.x - v.Width / 2 << "    y:" << mousePos.y - v.Height / 2 << "    a:" << angle << std::endl;
 
 	//D3DVIEWPORT9 *v = new D3DVIEWPORT9();
 	//gD3DDevice->GetViewport(v);
@@ -44,15 +46,15 @@ void Canon::Update()
 void Canon::Draw(ID3DXSprite* spriteBatch)
 {
 	D3DXMATRIX transfomMatrix;
-	D3DXVECTOR2 rotationCenter(0, 0);
 	D3DXVECTOR2 translation(0, -300);
-	D3DXMatrixAffineTransformation2D(&transfomMatrix, 1, &rotationCenter, angle, &translation);
+	D3DXMatrixAffineTransformation2D(&transfomMatrix, 1, 0, angle, &translation);
 	HR(spriteBatch->SetTransform(&transfomMatrix));
 	HR(spriteBatch->Draw(texture, 0, &center, &position, D3DCOLOR_XRGB(255, 255, 255)));
 
-	//// retore rotation
+	//restore transformation
 	D3DXMatrixIdentity(&transfomMatrix);
 	HR(spriteBatch->SetTransform(&transfomMatrix));
 
 	HR(spriteBatch->Flush());
 }
+
