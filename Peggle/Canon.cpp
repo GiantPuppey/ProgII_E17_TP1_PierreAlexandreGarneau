@@ -26,10 +26,10 @@ void Canon::Update()
 	Input* i = gD3DApp->GetInput();
 	POINT mousePos = i->GetMousePos();
 	//GetCursorPos(&mousePos);
-	D3DXVECTOR3 vMousePos(mousePos.x, mousePos.y, 0.f); //- gD3DApp->GetResolutionW() / 2, mousePos.y - gD3DApp->GetResolutionH() / 2, 0.f);
-	D3DXVECTOR3 dir = vMousePos - position;
-	D3DXVec3Normalize(&dir, &dir);
-	angle = (atan2(dir.y, dir.x));
+	//D3DXVECTOR3 vMousePos(mousePos.x, mousePos.y, 0.f); //- gD3DApp->GetResolutionW() / 2, mousePos.y - gD3DApp->GetResolutionH() / 2, 0.f);
+	//D3DXVECTOR3 dir = vMousePos - position;
+	//D3DXVec3Normalize(&dir, &dir);
+	//angle = (atan2(dir.y, dir.x));
 
 	
 	//SetRotationZ(atan2(dir.y, dir.x) - 90 * DEG_TO_RAD);
