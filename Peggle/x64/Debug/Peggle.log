@@ -1,2 +1,15 @@
-﻿  Peggle.vcxproj -> C:\Users\Luc\Documents\GitHub\ProgII_E17_TP1_PierreAlexandreGarneau\x64\Debug\Peggle.exe
+﻿  Peggle.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\luc\documents\github\progii_e17_tp1_pierrealexandregarneau\peggle\peggle.cpp(17): warning C4244: 'argument': conversion from 'UINT' to 'FLOAT', possible loss of data
+  Main.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Canon.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Balle.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Background.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Generating Code...
+  LINK : C:\Users\Luc\Documents\GitHub\ProgII_E17_TP1_PierreAlexandreGarneau\x64\Debug\Peggle.exe not found or not built by the last incremental link; performing full link
+  Peggle.vcxproj -> C:\Users\Luc\Documents\GitHub\ProgII_E17_TP1_PierreAlexandreGarneau\x64\Debug\Peggle.exe
   Peggle.vcxproj -> C:\Users\Luc\Documents\GitHub\ProgII_E17_TP1_PierreAlexandreGarneau\x64\Debug\Peggle.pdb (Partial PDB)
