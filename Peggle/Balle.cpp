@@ -7,7 +7,7 @@ Balle::Balle()
 	: center(8.0f, 8.0f, .0f)
 	, position(.0f, -300.0f, .0f)
 	, direction(.0f, .0f, .0f)
-	, speed(200)
+	, speed(500)
 	, isLauched(false)
 {
 	HR(D3DXCreateTextureFromFileEx(gD3DDevice, L"ball.png", 0, 0, 1, 0,
@@ -98,10 +98,25 @@ bool Balle::Collide(Bloc* bloc)
 	if (circleDistance.x > (bloc->GetW() / 2 + ballradius)) { return false; }
 	if (circleDistance.y > (bloc->GetH() / 2 + ballradius)) { return false; }
 
-	if (circleDistance.x <= (bloc->GetW()/ 2)) { return true; }
-	if (circleDistance.y <= (bloc->GetH() / 2)) { return true; }
+	if (circleDistance.x <= (bloc->GetW()/ 2)) { 
+		direction.y *= -1;
+		return true; 
+	}
+	if (circleDistance.y <= (bloc->GetH() / 2)) { 
+		direction.x *= -1;
+		return true; 
+	}
 
 	float cornerDistance_sq = std::powf((circleDistance.x - bloc->GetW() / 2), 2.0f) + std::powf((circleDistance.y - bloc->GetH() / 2), 2.0f);
 
-	return cornerDistance_sq <= std::powf(ballradius, 2.0f);
+	bool retour = cornerDistance_sq <= std::powf(ballradius, 2.0f);
+	if (retour)
+	{
+		if (circleDistance.x < circleDistance.y)
+			direction.y *= -1;
+		else
+			direction.x *= -1;
+	}
+
+	return retour;
 }
