@@ -42,6 +42,9 @@
     <ClInclude Include="Canon.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="Bloc.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -62,6 +65,9 @@
     <ClCompile Include="Canon.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Bloc.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="small.ico">
@@ -80,6 +86,9 @@
       <Filter>Fichiers de ressources</Filter>
     </Image>
     <Image Include="bannerSmallBlue.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="blueBrick12a.png">
       <Filter>Fichiers de ressources</Filter>
     </Image>
   </ItemGroup>

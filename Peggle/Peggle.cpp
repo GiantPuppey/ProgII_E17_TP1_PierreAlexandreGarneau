@@ -22,6 +22,8 @@ Peggle::Peggle(HINSTANCE hInstance, int nCmdShow)
 
 	HR(gD3DDevice->SetTransform(D3DTS_VIEW, &view));
 	HR(gD3DDevice->SetTransform(D3DTS_PROJECTION, &ortho));
+
+	Level1();
 }
 
 Peggle::~Peggle()
@@ -59,6 +61,10 @@ void Peggle::Draw()
 	background.Draw(spriteBatch);
 	balle.Draw(spriteBatch);
 	canon.Draw(spriteBatch);
+	for each (Bloc* bloc in blocs)
+	{
+		bloc->Draw(spriteBatch);
+	}
 
 	HR(spriteBatch->End());
 	HR(gD3DDevice->EndScene());
@@ -66,3 +72,11 @@ void Peggle::Draw()
 	HR(gD3DDevice->Present(0, 0, 0, 0));
 }
 
+void Peggle::Level1()
+{
+	blocs.clear();
+	for (int i = -550; i < 550; i += 100)
+	{
+ 		blocs.push_back(new Bloc(i, -100));
+	}
+}

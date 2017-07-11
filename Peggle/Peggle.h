@@ -3,6 +3,8 @@
 #include "Balle.h"
 #include "Canon.h"
 #include "Background.h"
+#include "Bloc.h"
+#include <vector>
 
 class Peggle 
 	: public D3DApp
@@ -14,8 +16,11 @@ public:
 
 	void Update();
 	void Draw();
+	void Level1();
 
 private:
+	std::vector<Bloc*> blocs;
+
 	ID3DXSprite* spriteBatch;
 
 	// Objets

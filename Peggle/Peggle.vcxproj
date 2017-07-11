@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClInclude Include="Background.h" />
     <ClInclude Include="Balle.h" />
+    <ClInclude Include="Bloc.h" />
     <ClInclude Include="Canon.h" />
     <ClInclude Include="Peggle.h" />
     <ClInclude Include="Resource.h" />
@@ -155,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Bloc.cpp" />
     <ClCompile Include="Canon.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Balle.cpp" />
@@ -170,6 +172,7 @@
     <Image Include="background.png" />
     <Image Include="ball.png" />
     <Image Include="bannerSmallBlue.png" />
+    <Image Include="blueBrick12a.png" />
     <Image Include="Patrick_Star.png" />
     <Image Include="Peggle.ico" />
     <Image Include="small.ico" />
