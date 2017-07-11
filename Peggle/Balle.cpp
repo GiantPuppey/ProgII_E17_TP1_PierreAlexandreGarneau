@@ -51,15 +51,10 @@ void Balle::Update()
 
 void Balle::Draw(ID3DXSprite* spriteBatch)
 {
-	HR(spriteBatch->Draw(texture, 0, &center, &position, D3DCOLOR_XRGB(255, 255, 255)));
-	HR(spriteBatch->Flush());
 }
 
 void Balle::Launch(float angle)
 {
-	position.x = 0;
-	position.y = -300;
-	speed = 200;
 	direction.x = cos(angle);
 	direction.y = sin(angle);
 }

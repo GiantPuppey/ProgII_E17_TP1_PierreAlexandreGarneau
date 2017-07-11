@@ -34,7 +34,7 @@ void Peggle::Update()
 	Input* input = gD3DApp->GetInput();
 	if (input->MouseButtonDown(0) == true)
 	{
-		if (canon.GetIsReady() == true)
+		if (balle.IsLauched() == false)
 		{
 			canon.SetIsReady(false);
 			balle.Launch(canon.GetAngle());
