@@ -1,4 +1,6 @@
 #pragma once
+#include "Bloc.h"
+
 class Balle
 {
 public:
@@ -10,6 +12,7 @@ public:
 	bool IsLauched();
 	void Launch(float angle);
 	void Die();
+	bool Collide(Bloc* bloc);
 
 private:
 	// Sprite
@@ -17,6 +20,7 @@ private:
 	D3DXIMAGE_INFO info;
 	D3DXVECTOR3 position;
 	D3DXVECTOR3 initPosition;
+	D3DXVECTOR3 lastPosition;
 	D3DXVECTOR3 center;
 	D3DXVECTOR3 direction;
 	float speed;

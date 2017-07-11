@@ -36,3 +36,23 @@ void Bloc::Draw(ID3DXSprite* spriteBatch)
 
 	HR(spriteBatch->Flush());
 }
+
+float Bloc::GetX()
+{
+	return position.x;
+}
+
+float Bloc::GetY()
+{
+	return position.y;
+}
+
+float Bloc::GetH()
+{
+	return center.y * 2;
+}
+
+float Bloc::GetW()
+{
+	return center.x * 2;
+}

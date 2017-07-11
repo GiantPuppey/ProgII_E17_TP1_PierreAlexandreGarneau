@@ -7,6 +7,10 @@ public:
 
 	void Update();
 	void Draw(ID3DXSprite* spriteBatch);
+	float GetX();
+	float GetY();
+	float GetH();
+	float GetW();
 
 private:
 	// Sprite

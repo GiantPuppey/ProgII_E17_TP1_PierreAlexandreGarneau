@@ -14,6 +14,7 @@ Balle::Balle()
 		D3DCOLOR_XRGB(255, 255, 255), &info, NULL, &texture));
 
 	initPosition = position;
+	lastPosition = position;
 }
 
 Balle::~Balle()
@@ -31,25 +32,28 @@ void Balle::Update()
 		int height = (int)v.Height / 2;
 		int width = (int)v.Width / 2;
 
+		lastPosition = position;
 		position += ((direction * speed) * gD3DApp->GetTimer()->GetDeltaTime());
+		
+		float ballRadius = center.x;
 
-		if (position.y > height)
+		if (position.y + ballRadius > height)
 		{
 			Die();
 		}
-		if (position.y < -height)
+		if (position.y - ballRadius < -height)
 		{
-			position.y = -height + 1;
+			position.y = -height + 1 + ballRadius;
 			direction.y *= -1;
 		}
-		if (position.x > width)
+		if (position.x + ballRadius  > width)
 		{
-			position.x = width - 1;
+			position.x = width - 1 - ballRadius;;
 			direction.x *= -1;
 		}
-		if (position.x < -width)
+		if (position.x - ballRadius  < -width)
 		{
-			position.x = -width + 1;
+			position.x = -width + 1 + ballRadius;;
 			direction.x *= -1;
 		}
 	}
@@ -80,4 +84,9 @@ void Balle::Die()
 bool Balle::IsLauched()
 {
 	return isLauched;
+}
+
+bool Balle::Collide(Bloc* bloc)
+{
+	return false;
 }

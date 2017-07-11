@@ -46,6 +46,11 @@ void Peggle::Update()
 	balle.Update();
 	canon.Update();
 	background.Update();
+
+	for each (Bloc* bloc in blocs)
+	{
+		balle.Collide(bloc);
+	}
 }
 
 void Peggle::Draw()
@@ -75,8 +80,11 @@ void Peggle::Draw()
 void Peggle::Level1()
 {
 	blocs.clear();
-	for (int i = -550; i < 550; i += 100)
+	for (int i = -550; i < 550; i += 40)
 	{
- 		blocs.push_back(new Bloc(i, -100));
+		for (int j = -100; j < 0; j += 30)
+		{
+			blocs.push_back(new Bloc(i, j));
+		}
 	}
 }
