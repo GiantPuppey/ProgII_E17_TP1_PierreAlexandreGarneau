@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Balle.h"
 #include "D3DApp.h"
+#include <math.h>
 
 Balle::Balle()
 	: center(8.0f, 8.0f, .0f)
@@ -88,5 +89,19 @@ bool Balle::IsLauched()
 
 bool Balle::Collide(Bloc* bloc)
 {
-	return false;
+	float ballradius = center.x;
+	D3DXVECTOR2 circleDistance;
+
+	circleDistance.x = abs(position.x - bloc->GetX());
+	circleDistance.y = abs(position.y - bloc->GetY());
+
+	if (circleDistance.x > (bloc->GetW() / 2 + ballradius)) { return false; }
+	if (circleDistance.y > (bloc->GetH() / 2 + ballradius)) { return false; }
+
+	if (circleDistance.x <= (bloc->GetW()/ 2)) { return true; }
+	if (circleDistance.y <= (bloc->GetH() / 2)) { return true; }
+
+	float cornerDistance_sq = std::powf((circleDistance.x - bloc->GetW() / 2), 2.0f) + std::powf((circleDistance.y - bloc->GetH() / 2), 2.0f);
+
+	return cornerDistance_sq <= std::powf(ballradius, 2.0f);
 }

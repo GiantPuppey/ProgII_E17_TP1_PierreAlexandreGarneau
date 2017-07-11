@@ -47,9 +47,13 @@ void Peggle::Update()
 	canon.Update();
 	background.Update();
 
-	for each (Bloc* bloc in blocs)
+	for (int i = 0; i < blocs.size(); i++)
 	{
-		balle.Collide(bloc);
+		if (balle.Collide(blocs.at(i)))
+		{
+			blocs.erase(blocs.begin() + i);
+			break;
+		}
 	}
 }
 
