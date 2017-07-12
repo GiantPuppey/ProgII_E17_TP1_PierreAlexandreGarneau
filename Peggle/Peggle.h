@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "D3DApp.h"
 #include "Balle.h"
+#include "Catcher.h"
 #include "Canon.h"
 #include "Background.h"
 #include "Bloc.h"
@@ -20,12 +21,12 @@ public:
 
 private:
 	std::vector<Bloc*> blocs;
-
 	ID3DXSprite* spriteBatch;
 
 	// Objets
 	Balle balle;
 	Canon canon;
+	Catcher catcher;
 	Background background;
 
 

@@ -148,6 +148,7 @@
     <ClInclude Include="Balle.h" />
     <ClInclude Include="Bloc.h" />
     <ClInclude Include="Canon.h" />
+    <ClInclude Include="Catcher.h" />
     <ClInclude Include="Peggle.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="resource1.h" />
@@ -158,6 +159,7 @@
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Bloc.cpp" />
     <ClCompile Include="Canon.cpp" />
+    <ClCompile Include="Catcher.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Balle.cpp" />
     <ClCompile Include="Peggle.cpp" />
@@ -173,6 +175,7 @@
     <Image Include="ball.png" />
     <Image Include="bannerSmallBlue.png" />
     <Image Include="blueBrick12a.png" />
+    <Image Include="Catcher.png" />
     <Image Include="Patrick_Star.png" />
     <Image Include="Peggle.ico" />
     <Image Include="small.ico" />

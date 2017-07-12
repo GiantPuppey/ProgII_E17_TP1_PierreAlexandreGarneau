@@ -40,11 +40,13 @@ void Peggle::Update()
 		{
 			canon.SetIsReady(false);
 			balle.Launch(canon.GetAngle());
+			catcher.Launch(catcher.GetDirection());
 		}
 	}
 
 	balle.Update();
 	canon.Update();
+	catcher.Update();
 	background.Update();
 	if (balle.IsLauched())
 	{
@@ -74,6 +76,8 @@ void Peggle::Draw()
 	background.Draw(spriteBatch);
 	balle.Draw(spriteBatch);
 	canon.Draw(spriteBatch);
+	catcher.Draw(spriteBatch);
+
 	for each (Bloc* bloc in blocs)
 	{
 		bloc->Draw(spriteBatch);

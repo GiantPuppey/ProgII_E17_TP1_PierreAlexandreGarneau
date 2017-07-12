@@ -8,7 +8,7 @@ Background::Background() : Background(0, 0, 0)
 
 Background::Background(float gravity, float startX, float startY)
 	: center(.0f, .0f, .0f)
-	, position(-300.0f, -300.0f, .0f)
+	, position(-850.0f, -400.0f, .0f)
 	,isLaunched(false)
 	,gravityForce(gravity)
 	,speed(300.0f)
